@@ -62,12 +62,14 @@ def print_processes(ps):
     print(tabulate(ps, headers="keys", tablefmt="github"))
 
 
-procs = get_processes()
-while True:
-    print_processes(procs)
-    time.sleep(1)
+if __name__ == '__name__':
     procs = get_processes()
-    if "nt" in os.name:
-        os.system("cls")
-    else:
-        os.system("clear")
+    while True:
+        print_processes(procs)
+        time.sleep(1)
+        procs = get_processes()
+        if "nt" in os.name:
+            os.system("cls")
+        else:
+            os.system("clear")
+
